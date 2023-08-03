@@ -20,11 +20,17 @@ function Home() {
     
   } 
 
-  //`https://api.openweathermap.org/data/2.5/weather?lat=${cityCoord.lat}&lon=${cityCoord.lon}&appid=${import.meta.env.VITE_METEO_KEY}`
 
   useEffect(() => {
     axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${import.meta.env.VITE_METEO_KEY}`)
-         .then((response) => setCityCoord(response.data[0]));   
+         .then((response) => {
+            setCityCoord(response.data[0])
+            
+            const {lat, lon} = response.data[0];
+            
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_METEO_KEY}`)
+                 .then(data => console.log(data.data))
+          });   
   }, [city]);
   console.log(cityCoord);
   return (
