@@ -5,26 +5,38 @@ import axios from 'axios'
 function App() {
   const [city, setCity] = useState('');
   const [cityCoord, setCityCoord] = useState('');
-  const [cityName, setCityName] = useState('');
+  
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (event.target.city.value === '' || event.target.city.value.length < 3) {
+      alert('Veuillez entrer une ville valide');
+      return;
+    } else if (event.target.city.value.length > 20) {
+      alert('Veuillez entrer une ville de moins de 20 caractères');
+      return;
+    } else {
+      setCity(event.target.city.value);
+    }
+    
+  } 
 
-  const handleCityChange = (event) => {
-    setCity(event.target.value);
-  }
+  //`https://api.openweathermap.org/data/2.5/weather?lat=${cityCoord.lat}&lon=${cityCoord.lon}&appid=${import.meta.env.VITE_METEO_KEY}`
 
   useEffect(() => {
     axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${import.meta.env.VITE_METEO_KEY}`)
-         .then((response) => response.data)
-         .then((data) =>  { 
-              setCityCoord("lon : " + data[0].lon.toString() + " / lat : " + data[0].lat.toString());
-              setCityName(data[0].name)
-            });    
+         .then((response) => setCityCoord(response.data[0]));   
   }, [city]);
+  console.log(cityCoord);
   return (
     <>
       <h1>Meteo Checker</h1>
-      <input type="text" value={city} onChange={handleCityChange} />
-      <p>Ville: {cityName}</p>
-      <p>Coordonnées = {cityCoord}</p>
+      <form onSubmit={handleSearch}>
+        <label htmlFor="city">Entrez une ville : </label>
+        <input type="text" id="city" name="city"/>
+      </form>
+      <p>Ville: {cityCoord.name}</p>
+      <p>Latitude : {cityCoord.lat}</p>
+      <p>Longitude : {cityCoord.lon}</p>
     </>
   )
 }
