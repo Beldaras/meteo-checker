@@ -42,7 +42,6 @@ function Home() {
             }&units=metric&lang=fr`
           )
           .then((data) => {
-            console.log(data.data);
             setWeather(data.data.weather[0]);
             setTemp(data.data.main);
             setSunRise(data.data.sys.sunrise);
@@ -50,6 +49,17 @@ function Home() {
           });
       });
   }, [city]);
+
+    useEffect(() => {
+      const city = JSON.parse(localStorage.getItem('city'));
+      if (city) {
+       setCity(city);
+      }
+    }, []);
+
+    useEffect(() => {
+      localStorage.setItem('city', JSON.stringify(city));
+    }, [city]);
 
   const localizedSunRise = new Date(sunRise * 1000).toLocaleTimeString(
     "fr-FR",
