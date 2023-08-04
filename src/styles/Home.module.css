@@ -1,0 +1,15 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 200;
+  width: 100vh;
+  height: 100vh;
+  background: url("public/images/background.png");
+}
+
+.coord {
+  margin-right: 3em;
+}
