@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import styles from "../styles/Home.module.css";
-import CityCard from "../components/CityCard";
 
 function Home() {
   const [city, setCity] = useState("");
@@ -52,16 +50,16 @@ function Home() {
       });
   }, [city]);
 
-  useEffect(() => {
-    const city = JSON.parse(localStorage.getItem("city"));
-    if (city) {
-      setCity(city);
-    }
-  }, []);
+    useEffect(() => {
+      const city = JSON.parse(localStorage.getItem('city'));
+      if (city) {
+       setCity(city);
+      }
+    }, []);
 
-  useEffect(() => {
-    localStorage.setItem("city", JSON.stringify(city));
-  }, [city]);
+    useEffect(() => {
+      localStorage.setItem('city', JSON.stringify(city));
+    }, [city]);
 
   const localizedSunRise = new Date(sunRise * 1000).toLocaleTimeString(
     "fr-FR",
@@ -74,24 +72,30 @@ function Home() {
 
   return (
     <>
-      <div className={styles.welcome}>
-        <h1>Meteo Checker</h1>
-        <form onSubmit={handleSearch}>
-          <label htmlFor="city">Entrez une ville : </label>
-          <input type="text" id="city" name="city" />
-        </form>
-
-        {cityCoord && (
-          <CityCard 
-            cityCoord={cityCoord}
-            weather={weather}
-            temp={temp}
-            localizedSunRise={localizedSunRise}
-            localizedSunSet={localizedSunSet}
-
-          />
-        )}
-      </div>
+      <h1>Meteo Checker</h1>
+      <form onSubmit={handleSearch}>
+        <label htmlFor="city">Entrez une ville : </label>
+        <input type="text" id="city" name="city" />
+      </form>
+      { cityCoord &&
+      <div>
+        <p>Ville: {cityCoord.name}</p>
+        <p>Latitude : {cityCoord.lat}</p>
+        <p>Longitude : {cityCoord.lon}</p>
+        <img
+          src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+          alt="image de la météo actuelle"
+        />
+        <p>{weather.description}</p>
+        <p>
+          Température : {temp.temp}°C Ressentie : {temp.feels_like}°C
+        </p>
+        <p>
+          Min : {temp.temp_min}°C Max : {temp.temp_max}°C
+        </p>
+        <p>Levé du soleil : {localizedSunRise}</p>
+        <p>Couché du soleil : {localizedSunSet}</p>
+      </div>}
     </>
   );
 }
