@@ -13,8 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  width: 100vh;
-  height: 100vh;
+
   margin: 0;
   box-sizing: border-box;
 }
@@ -25,8 +24,6 @@ body {
   box-sizing: border-box;
   display: flex;
   place-items: center;
-  min-width: 100vh;
-  min-height: 100vh;
 }
 
 h1 {

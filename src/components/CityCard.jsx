@@ -15,22 +15,25 @@ function CityCard( {cityCoord, weather, temp, sunRise, sunSet} ) {
   return (
     <>
       {cityCoord && (
-        <div>
+        <div className={styles.card}>
           <p>Ville: {cityCoord.name}</p>
           <p>
             <span className={styles.coord}>Lat : {cityCoord.lat}</span>
-            <span>Lon : {cityCoord.lon}</span>
+            <span className={styles.coord}>Lon : {cityCoord.lon}</span>
           </p>
+          <div className={styles.description}>
           <img
             src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`}
             alt="image de la météo actuelle"
           />
           <p>{weather.description}</p>
+          </div>
           <p>
-            Température : {temp.temp}°C Ressentie : {temp.feels_like}°C
+            Température : {temp.temp}°C 
           </p>
+          <p>Ressentie : {temp.feels_like}°C</p>
           <p>
-            Min : {temp.temp_min}°C Max : {temp.temp_max}°C
+          <span className={styles.coord}>Min : {temp.temp_min}°C</span>  <span className={styles.coord}>Max : {temp.temp_max}°C</span>
           </p>
           <p>Levé du soleil : {localizedSunRise}</p>
           <p>Couché du soleil : {localizedSunSet}</p>
