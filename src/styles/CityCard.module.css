@@ -21,11 +21,17 @@
   margin: 0;
 }
 
-.card img {
-  width: 20%;
-  height: 50%;
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favicon {
+  width: 1em;
+  height: 1em;
   object-fit: cover;
-  border-radius: 2px;
 }
 
 .description {
@@ -34,3 +40,11 @@
   gap: 0.5em;
   align-items: center;
 }
+
+.weather {
+  width: 20%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
