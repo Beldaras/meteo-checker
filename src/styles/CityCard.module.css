@@ -1,3 +1,50 @@
 .coord {
-  margin-right: 3em;
+  margin-right: 1em;
+  font-size: 0.7em;
 }
+
+.card {
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 10em;
+  height: 12em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(255 255 255 / 0.1);
+}
+.card p {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favicon {
+  width: 1em;
+  height: 1em;
+  object-fit: cover;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.weather {
+  width: 20%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+

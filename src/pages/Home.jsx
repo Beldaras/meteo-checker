@@ -1,28 +1,17 @@
-import { useEffect } from "react";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
+import CityCard from "../components/CityCard";
 
 function Home() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(localStorage.getItem('city') || "");
+  // const [lastCity, setLastCity] = useState(city);
   const [cityCoord, setCityCoord] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("");
   const [sunRise, setSunRise] = useState("");
   const [sunSet, setSunSet] = useState("");
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    if (event.target.city.value === "" || event.target.city.value.length < 3) {
-      alert("Veuillez entrer une ville valide");
-      return;
-    } else if (event.target.city.value.length > 20) {
-      alert("Veuillez entrer une ville de moins de 20 caractères");
-      return;
-    } else {
-      setCity(event.target.city.value);
-    }
-  };
 
   useEffect(() => {
     axios
@@ -32,6 +21,7 @@ function Home() {
         }`
       )
       .then((response) => {
+        localStorage.setItem('city', response.data[0].name);
         setCityCoord(response.data[0]);
 
         const { lat, lon } = response.data[0];
@@ -51,60 +41,38 @@ function Home() {
       });
   }, [city]);
 
-    useEffect(() => {
-      const city = JSON.parse(localStorage.getItem('city'));
-      if (city) {
-       setCity(city);
-      }
-    }, []);
+  
 
-    useEffect(() => {
-      localStorage.setItem('city', JSON.stringify(city));
-    }, [city]);
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (event.target.city.value === "" || event.target.city.value.length < 3) {
+      alert("Veuillez entrer une ville valide");
+      return;
+    } else if (event.target.city.value.length > 20) {
+      alert("Veuillez entrer une ville de moins de 20 caractères");
+      return;
+    } else {
+      setCity(event.target.city.value);
+    }
+  };
 
-  const localizedSunRise = new Date(sunRise * 1000).toLocaleTimeString(
-    "fr-FR",
-    { hour: "2-digit", minute: "2-digit" }
-  );
-  const localizedSunSet = new Date(sunSet * 1000).toLocaleTimeString("fr-FR", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
+ 
   return (
     <>
       <div className={styles.welcome}>
         <h1>Meteo Checker</h1>
         <form onSubmit={handleSearch}>
           <label htmlFor="city">Entrez une ville : </label>
-          <input type="text" id="city" name="city" />
+          <input type="text" id="city" name="city"  />
         </form>
 
-        {cityCoord && (
-          <div>
-            <p>Ville: {cityCoord.name}</p>
-            <p>
-              <span className={styles.coord}>Lat : {cityCoord.lat}</span>
-              <span>Lon : {cityCoord.lon}</span>
-            </p>
-            <img
-              src={`https://openweathermap.org/img/wn/${weather.icon}@4x.png`}
-              alt="image de la météo actuelle"
-            />
-            <p>{weather.description}</p>
-            <p>
-              Température : {temp.temp}°C Ressentie : {temp.feels_like}°C
-            </p>
-            <p>
-              Min : {temp.temp_min}°C Max : {temp.temp_max}°C
-            </p>
-            <p>Levé du soleil : {localizedSunRise}</p>
-            <p>Couché du soleil : {localizedSunSet}</p>
-          </div>
-        )}
+       <CityCard cityCoord={cityCoord} 
+                 weather={weather}
+                 temp={temp}
+                 sunRise={sunRise}
+                 sunSet={sunSet} />
       </div>
     </>
   );
 }
-
-export default Home;
+  export default Home;
