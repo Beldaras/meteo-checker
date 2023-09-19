@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Header from "../components/Header";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -7,6 +8,8 @@ function Login() {
   const [lastname, setLastname] = useState("");
 
   return (
+    <>
+    <Header />
     <form>
       <div>
         <label htmlFor="email">Enter you email</label>
@@ -46,6 +49,7 @@ function Login() {
       </div>
       <button type="submit">Register</button>
     </form>
+    </>
   );
 }
 

@@ -1,10 +1,13 @@
 import { useState } from "react";
+import Header from "../components/Header";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
+    <>
+    <Header />
     <form>
       <div>
         <label htmlFor="email">Enter you email</label>
@@ -26,6 +29,7 @@ function Login() {
       </div>
       <button type="submit">Login</button>
     </form>
+    </>
   );
 }
 

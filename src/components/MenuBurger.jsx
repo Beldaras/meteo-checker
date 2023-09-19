@@ -16,24 +16,21 @@ function MenuBurger() {
       </button>
       {isOpen && (
         <div className="absolute top-12 left-20 transform -translate-x-1/2 z-10 bg-white opacity-80 rounded shadow-md py-2">
-          <nav className="text-base font-jost">
+          <nav>
             <a
-              className="block px-4 py-2 text-gray-900 hover:text-red focus:text-red"
               href="/"
             >
               Accueil
             </a>
             <a
-              className="block px-4 py-2 text-gray-900 hover:text-red focus:text-red "
-              href="/Manga"
+              href="/login"
             >
-              Manga
+              Login
             </a>
             <a
-              className="block px-4 py-2 text-gray-900 hover:text-red focus:text-red"
-              href="/register"
+              href="/signup"
             >
-              Sign in
+              Sign Up
             </a>
           </nav>
         </div>
