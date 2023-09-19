@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
 import CityCard from "../components/CityCard";
+import Footer from "../components/footer";
 
 function Home() {
   const [city, setCity] = useState(localStorage.getItem('city') || "");
@@ -72,6 +73,7 @@ function Home() {
                  sunRise={sunRise}
                  sunSet={sunSet} />
       </div>
+      <Footer />
     </>
   );
 }

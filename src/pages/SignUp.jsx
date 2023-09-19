@@ -3,8 +3,8 @@ import { useState } from "react";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstname, setFirstname] = useState("John");
-  const [lastname, setLastname] = useState("Doe");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
 
   return (
     <form>
