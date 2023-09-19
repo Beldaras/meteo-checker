@@ -2,8 +2,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
+import Header from "../components/Header";
 import CityCard from "../components/CityCard";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 function Home() {
   const [city, setCity] = useState(localStorage.getItem('city') || "");
@@ -61,6 +62,7 @@ function Home() {
   return (
     <>
       <div className={styles.welcome}>
+      <Header />
         <h1>Meteo Checker</h1>
         <form onSubmit={handleSearch}>
           <label htmlFor="city">Entrez une ville : </label>
