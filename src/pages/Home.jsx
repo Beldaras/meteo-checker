@@ -62,7 +62,7 @@ function Home() {
   return (
     <>
       <div className={styles.welcome}>
-      <Header />
+      {/*<Header />*/}
         <h1>Meteo Checker</h1>
         <form onSubmit={handleSearch}>
           <label htmlFor="city">Entrez une ville : </label>

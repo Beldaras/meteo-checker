@@ -7,23 +7,26 @@
 .open {
   display: flex;
   position: absolute;
-  top: 12;
-  left: 20;
+  left: 50px;
+  top: 0px;
   width: 100%;
-  height: 100%;
+  height: 50px;
   background-color: #fff;
-  opacity: 0.8;
-  z-index: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
+  opacity: 0.9;
+  z-index: 10;
 }
 
 .iconBurger {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+  width: 50px;
+  height: 50px;
 }
 
+.liste {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item {
+  padding: 15px;
+}

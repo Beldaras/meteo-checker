@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Header from "../components/Header";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -7,7 +6,6 @@ function Login() {
 
   return (
     <>
-    <Header />
     <form>
       <div>
         <label htmlFor="email">Enter you email</label>
