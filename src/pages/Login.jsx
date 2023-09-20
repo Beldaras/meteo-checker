@@ -17,10 +17,9 @@ function Login() {
           navigate("/");
         }).catch((err) => {
           console.log(err);
-          }).catch((err) => {
-            console.log(err)
-            navigate("/");
-          });  
+          }); 
+      } else {
+        console.log("Veuillez remplir tous les champs");
       }
   };
 
