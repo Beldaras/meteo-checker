@@ -1,12 +1,32 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import meteoAPI from "../services/meteoAPI.js";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+      event.preventDefault();
+
+      if(email && password) {
+        meteoAPI.post("/api/login", { email, password }).then((res) => {
+          console.log(res);
+          navigate("/");
+        }).catch((err) => {
+          console.log(err);
+          }).catch((err) => {
+            console.log(err)
+            navigate("/");
+          });  
+      }
+  };
+
   return (
     <>
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="email">Enter you email</label>
         <input
@@ -30,5 +50,6 @@ function Login() {
     </>
   );
 }
+
 
 export default Login;
