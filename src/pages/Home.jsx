@@ -25,6 +25,7 @@ function Home() {
       .then((response) => {
         localStorage.setItem('city', response.data[0].name);
         setCityCoord(response.data[0]);
+        console.log(response.data[0]);
 
         const { lat, lon } = response.data[0];
 
