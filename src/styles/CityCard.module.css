@@ -28,12 +28,6 @@
   align-items: center;
 }
 
-.favicon {
-  width: 1em;
-  height: 1em;
-  object-fit: cover;
-}
-
 .description {
   display: flex;
   flex-direction: row;

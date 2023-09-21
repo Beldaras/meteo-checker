@@ -2,11 +2,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
+import Header from "../components/Header";
 import CityCard from "../components/CityCard";
+import Footer from "../components/Footer";
 
 function Home() {
   const [city, setCity] = useState(localStorage.getItem('city') || "");
-  // const [lastCity, setLastCity] = useState(city);
   const [cityCoord, setCityCoord] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("");
@@ -23,6 +24,7 @@ function Home() {
       .then((response) => {
         localStorage.setItem('city', response.data[0].name);
         setCityCoord(response.data[0]);
+        console.log(response.data[0]);
 
         const { lat, lon } = response.data[0];
 
@@ -60,6 +62,7 @@ function Home() {
   return (
     <>
       <div className={styles.welcome}>
+      {/*<Header />*/}
         <h1>Meteo Checker</h1>
         <form onSubmit={handleSearch}>
           <label htmlFor="city">Entrez une ville : </label>
@@ -72,6 +75,7 @@ function Home() {
                  sunRise={sunRise}
                  sunSet={sunSet} />
       </div>
+      <Footer />
     </>
   );
 }

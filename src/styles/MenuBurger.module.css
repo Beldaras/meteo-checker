@@ -1,0 +1,32 @@
+.close {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.open {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  height: 50px;
+  top: 0;
+  left: 50px;
+  background-color: #fff;
+  opacity: 0.9;
+  z-index: 10;
+}
+
+.iconBurger {
+  width: 50px;
+  height: 50px;
+}
+
+.liste {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item {
+  padding: 15px;
+}
