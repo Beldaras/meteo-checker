@@ -4,7 +4,7 @@ import styles from "../styles/FavIcon.module.css";
 function FavIcon(cityCoord) {
 
   const handleClick = () => {
-    console.log("coucou", cityCoord.cityCoord.name);
+    console.log("coucou", cityCoord.cityCoord);
   }
 
   return (
