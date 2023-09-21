@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 
 function Home() {
   const [city, setCity] = useState(localStorage.getItem('city') || "");
-  // const [lastCity, setLastCity] = useState(city);
   const [cityCoord, setCityCoord] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("");
