@@ -3,9 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import iconeBurger from "../assets/icons/menu.svg";
 import styles from "../styles/MenuBurger.module.css";
 import meteoAPI from "../services/meteoAPI.js";
+import { useAuthContext } from "../contexts/authContext.jsx";
 
 function MenuBurger() {
   const [isOpen, setOpen] = useState(false);
+
+  const { setUser } = useAuthContext();
 
   const navigate = useNavigate();
 
@@ -14,13 +17,14 @@ function MenuBurger() {
       .get("/api/logout")
       .then((res) => {
         console.log(res);
+        localStorage.clear();
+        setUser(null);
         navigate("/");
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
 
   return (
     <div>
