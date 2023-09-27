@@ -1,23 +1,21 @@
 import junk from "../assets/icons/supprimer.png";
 import styles from "../styles/DeleteIcon.module.css";
-// import meteoAPI from "../services/meteoAPI.js";
+import meteoAPI from "../services/meteoAPI.js";
 
-function DeleteIcon(favid) {
+function DeleteIcon(fav) {
 
   const handleClick = () => {
    
-    const id = favid;
+    const favid = fav.favid;
 
-    console.log(id);
-
-      /*meteoAPI
-        .post("/api/fav", { id })
+      meteoAPI
+        .delete(`/api/fav/${favid}`)
         .then((res) => {
           console.log(res);
         })
         .catch((err) => {
           console.log(err);
-        });*/
+        });
     };
 
   return (
