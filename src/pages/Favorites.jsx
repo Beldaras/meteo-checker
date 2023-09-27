@@ -3,6 +3,7 @@ import { useAuthContext } from "../contexts/authContext";
 import meteoAPI from "../services/meteoAPI.js";
 import axios from "axios";
 import styles from "../styles/Favorites.module.css";
+import DeleteIcon from "../components/DeleteFavButton.jsx";
 
 
 function Favorites() {
@@ -63,6 +64,7 @@ function Favorites() {
             <div key={fav.favid} className={styles.card}>
               <div className={styles.cardHeader}>
                 <p>Ville: {fav.city}</p>
+                <DeleteIcon favid={fav.favid} />
               </div>
               <p>
                 <span className={styles.coord}>Lat : {fav.lat}</span>
