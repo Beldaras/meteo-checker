@@ -51,6 +51,10 @@ function MenuBurger() {
             </li>
             <li className={styles.item}>
               {" "}
+              <Link to="/favorites">Favorites</Link>{" "}
+            </li>
+            <li className={styles.item}>
+              {" "}
               <Link to="/login">Login</Link>{" "}
             </li>
             <li className={styles.item}>

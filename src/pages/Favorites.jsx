@@ -45,7 +45,6 @@ function Favorites() {
           }&units=metric&lang=fr`
         )
         .then((data) => {
-          console.log(data);
           setWeather(data.data.weather[0]);
           setTemp(data.data.main);
           setSunRise(data.data.sys.sunrise);
@@ -53,8 +52,6 @@ function Favorites() {
         });
     });
   }, [favorites]);
-
-  console.log(favorites);
 
   return (
     <div className={styles.welcome}>
