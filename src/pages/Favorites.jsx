@@ -5,7 +5,6 @@ import axios from "axios";
 import styles from "../styles/Favorites.module.css";
 import DeleteIcon from "../components/DeleteFavButton.jsx";
 
-
 function Favorites() {
   const { user } = useAuthContext();
 
@@ -35,6 +34,21 @@ function Favorites() {
       });
   }, [user.id]);
 
+  const handleRemove = (favid) => {
+    
+    const newFavorites = favorites.filter((fav) => fav.favid !== favid);
+    setFavorites(newFavorites);
+
+    meteoAPI
+      .delete(`/api/fav/${favid}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     favorites.map((fav) => {
       const { lat, lon } = fav;
@@ -61,7 +75,10 @@ function Favorites() {
             <div key={fav.favid} className={styles.card}>
               <div className={styles.cardHeader}>
                 <p>Ville: {fav.city}</p>
-                <DeleteIcon favid={fav.favid} />
+                <DeleteIcon
+                  favid={fav.favid}
+                  handleRemove={handleRemove}
+                />
               </div>
               <p>
                 <span className={styles.coord}>Lat : {fav.lat}</span>
