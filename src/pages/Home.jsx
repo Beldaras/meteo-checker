@@ -1,13 +1,10 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
-import Header from "../components/Header";
 import CityCard from "../components/CityCard";
-import Footer from "../components/Footer";
 
 function Home() {
-  const [city, setCity] = useState(localStorage.getItem('city') || "");
+  const [city, setCity] = useState(localStorage.getItem("city") || "");
   const [cityCoord, setCityCoord] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("");
@@ -22,9 +19,8 @@ function Home() {
         }`
       )
       .then((response) => {
-        localStorage.setItem('city', response.data[0].name);
+        localStorage.setItem("city", response.data[0].name);
         setCityCoord(response.data[0]);
-        console.log(response.data[0]);
 
         const { lat, lon } = response.data[0];
 
@@ -43,8 +39,6 @@ function Home() {
       });
   }, [city]);
 
-  
-
   const handleSearch = (event) => {
     event.preventDefault();
     if (event.target.city.value === "" || event.target.city.value.length < 3) {
@@ -58,25 +52,24 @@ function Home() {
     }
   };
 
- 
   return (
     <>
       <div className={styles.welcome}>
-      {/*<Header />*/}
         <h1>Meteo Checker</h1>
         <form onSubmit={handleSearch}>
           <label htmlFor="city">Entrez une ville : </label>
-          <input type="text" id="city" name="city"  />
+          <input type="text" id="city" name="city" />
         </form>
 
-       <CityCard cityCoord={cityCoord} 
-                 weather={weather}
-                 temp={temp}
-                 sunRise={sunRise}
-                 sunSet={sunSet} />
+        <CityCard
+          cityCoord={cityCoord}
+          weather={weather}
+          temp={temp}
+          sunRise={sunRise}
+          sunSet={sunSet}
+        />
       </div>
-      <Footer />
     </>
   );
 }
-  export default Home;
+export default Home;
