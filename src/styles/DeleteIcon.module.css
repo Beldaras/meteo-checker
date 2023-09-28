@@ -1,0 +1,18 @@
+.delbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  margin : 0;
+  padding: 0;
+  background: rgba(106, 90, 205);
+  border: none;
+  border-radius: 50%;
+}
+
+.favicon {
+  width: 2em;
+  height: 2em;
+  object-fit: cover;
+}
