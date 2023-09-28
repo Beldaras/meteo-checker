@@ -4,6 +4,7 @@ import meteoAPI from "../services/meteoAPI.js";
 import axios from "axios";
 import styles from "../styles/Favorites.module.css";
 import DeleteIcon from "../components/DeleteFavButton.jsx";
+import Footer from "../components/Footer";
 
 function Favorites() {
   const { user } = useAuthContext();
@@ -103,6 +104,7 @@ function Favorites() {
             </div>
           );
         })}
+        <Footer />
     </div>
   );
 }
