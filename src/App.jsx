@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Header from "./components/Header";
 import Favorites from "./pages/Favorites";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -104,7 +104,6 @@ function Favorites() {
             </div>
           );
         })}
-        <Footer />
     </div>
   );
 }
