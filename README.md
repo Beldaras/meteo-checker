@@ -6,7 +6,17 @@ As a user, you can create an account and login to access your favorites.
 
 The backend project to register user and his favorites cities here : https://github.com/Beldaras/meteo-express
 
-npm run dev to view the project
+### To run the project
+
+```
+git clone git@github.com:Beldaras/meteo-checker.git
+
+npm install
+
+npm run dev
+```
+
+Don't forget to set your .env (with .env.sample), clone and run backend repository
 
 # React + Vite
 
