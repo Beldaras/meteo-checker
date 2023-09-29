@@ -53,7 +53,12 @@ function MenuBurger() {
                   <Link to="/favorites">Favorites</Link>{" "}
                 </li>
                 <li className={styles.item}>
-                  <button onClick={handleDisconnection}>Disconnect</button>
+                  <button
+                    className={styles.button}
+                    onClick={handleDisconnection}
+                  >
+                    Disconnect
+                  </button>
                 </li>
               </>
             ) : (
