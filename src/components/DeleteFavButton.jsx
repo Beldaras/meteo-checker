@@ -1,6 +1,5 @@
 import junk from "../assets/icons/supprimer.png";
 import styles from "../styles/DeleteIcon.module.css";
-// import meteoAPI from "../services/meteoAPI.js";
 
 function DeleteIcon({favid, handleRemove}) {
   
