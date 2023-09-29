@@ -1,5 +1,5 @@
 import styles from "../styles/CityCard.module.css";
-import etoile from "../assets/icons/favori.png";
+import FavIcon from "./FavIcon";
 
 function CityCard({ cityCoord, weather, temp, sunRise, sunSet }) {
   const localizedSunRise = new Date(sunRise * 1000).toLocaleTimeString(
@@ -17,7 +17,7 @@ function CityCard({ cityCoord, weather, temp, sunRise, sunSet }) {
         <div className={styles.card}>
           <div className={styles.cardHeader}>
             <p>Ville: {cityCoord.name}</p>
-            <img className={styles.favicon} src={etoile} alt="favorite icon" title="Add to favorite" />
+            <FavIcon cityCoord={cityCoord}/>
           </div>
           <p>
             <span className={styles.coord}>Lat : {cityCoord.lat}</span>
