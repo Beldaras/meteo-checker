@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import meteoAPI from "../services/meteoAPI.js";
+import styles from "../styles/Forms.module.css";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -29,47 +30,51 @@ function SignUp() {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Enter you email</label>
+    <div className={styles.welcome}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.item}>
+          <label htmlFor="email" className={styles.label}>Enter you email : </label>
           <input
+            className={styles.input}
             type="email"
             name="email"
             id="email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="password">Enter you password</label>
+        <div className={styles.item}>
+          <label htmlFor="password" className={styles.label}>Enter you password : </label>
           <input
+            className={styles.input}
             type="password"
             name="password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="firstname">Enter you firstname</label>
+        <div className={styles.item}>
+          <label htmlFor="firstname" className={styles.label}>Enter you firstname : </label>
           <input
+            className={styles.input}
             type="firstname"
             name="firstname"
             id="firstname"
             onChange={(e) => setFirstname(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="lastname">Enter you lastname</label>
+        <div className={styles.item}>
+          <label htmlFor="lastname" className={styles.label}>Enter you lastname : </label>
           <input
+            className={styles.input}
             type="lastname"
             name="lastname"
             id="lastname"
             onChange={(e) => setLastname(e.target.value)}
           />
         </div>
-        <button type="submit">Register</button>
+        <button className={styles.button} type="submit">Register</button>
       </form>
-    </>
+    </div>
   );
 }
 
