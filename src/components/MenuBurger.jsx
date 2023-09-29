@@ -8,7 +8,7 @@ import { useAuthContext } from "../contexts/authContext.jsx";
 function MenuBurger() {
   const [isOpen, setOpen] = useState(false);
 
-  const { setUser } = useAuthContext();
+  const { user, setUser } = useAuthContext();
 
   const navigate = useNavigate();
 
@@ -43,24 +43,31 @@ function MenuBurger() {
         <div className={styles.open}>
           <ul className={styles.liste}>
             <li className={styles.item}>
-              <button onClick={handleDisconnection}>Disconnect</button>
-            </li>
-            <li className={styles.item}>
               {" "}
               <Link to="/">Accueil</Link>{" "}
             </li>
-            <li className={styles.item}>
-              {" "}
-              <Link to="/favorites">Favorites</Link>{" "}
-            </li>
-            <li className={styles.item}>
-              {" "}
-              <Link to="/login">Login</Link>{" "}
-            </li>
-            <li className={styles.item}>
-              {" "}
-              <Link to="/signup">Sign Up</Link>{" "}
-            </li>
+            {user ? (
+              <>
+                <li className={styles.item}>
+                  {" "}
+                  <Link to="/favorites">Favorites</Link>{" "}
+                </li>
+                <li className={styles.item}>
+                  <button onClick={handleDisconnection}>Disconnect</button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className={styles.item}>
+                  {" "}
+                  <Link to="/login">Login</Link>{" "}
+                </li>
+                <li className={styles.item}>
+                  {" "}
+                  <Link to="/signup">Sign Up</Link>{" "}
+                </li>
+              </>
+            )}
           </ul>
         </div>
       )}
