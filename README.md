@@ -6,7 +6,7 @@ As a user, you can create an account and login to access your favorites.
 
 The backend project to register user and his favorites cities here : https://github.com/Beldaras/meteo-express
 
-To run the project
+### To run the project
 
 ```
 git clone git@github.com:Beldaras/meteo-checker.git
