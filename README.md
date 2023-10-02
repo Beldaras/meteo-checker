@@ -1,7 +1,7 @@
 # Meteo Checker
 
-Voici le projet frontend d'une web app météo fullstack.
-A ce stade de développement, vous pouvez rechercher une ville et voir sa météo sur la page d'acceuil. Les donnée sont sauvegarder dans la stockage local du navigateur.
+Voici le projet frontend d'une web app météo fullstack.  
+A ce stade de développement, vous pouvez rechercher une ville et voir sa météo sur la page d'acceuil. Les donnée sont sauvegarder dans la stockage local du navigateur.  
 Vous pouvez également créer un compte utilisateur, vous connecter, ajouter des favoris et accéder à la page correspondante pour les consulter.
 
 Pour la suite, il reste à améliorer le design (css), finir le CRUD utilisateur (pour mettre à jour ses informations ou supprimer son compte) et refactoriser le code.
