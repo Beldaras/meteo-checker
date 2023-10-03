@@ -13,6 +13,8 @@ Lien vers le dépot du backend : https://github.com/Beldaras/meteo-express
 ```
 git clone git@github.com:Beldaras/meteo-checker.git
 
+cd meteo-checker
+
 npm install
 
 npm run dev
