@@ -37,6 +37,8 @@ The backend project to register user and his favorites cities here : https://git
 ```
 git clone git@github.com:Beldaras/meteo-checker.git
 
+cd meteo-checker
+
 npm install
 
 npm run dev
