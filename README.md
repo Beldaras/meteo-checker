@@ -1,7 +1,7 @@
 # Meteo Checker
 
 Voici le projet frontend d'une web app météo fullstack.  
-A ce stade de développement, vous pouvez rechercher une ville et voir sa météo sur la page d'acceuil. Les données sont sauvegardées dans le stockage local du navigateur.  
+A ce stade de développement, vous pouvez rechercher une ville et voir sa météo sur la page d'accueil. La dernière recherche est sauvegardée dans le stockage local du navigateur.  
 Vous pouvez également créer un compte utilisateur, vous connecter, ajouter des favoris et accéder à la page correspondante pour les consulter.
 
 Pour la suite, il reste à améliorer le design (css), finir le CRUD utilisateur (pour mettre à jour ses informations ou supprimer son compte) et refactoriser le code.
@@ -20,12 +20,12 @@ npm install
 npm run dev
 ```
 
-N'oublier pas de paramétrer vos variables d'environnement dans un fichier .env (utilisez le .env.sample en exemple).
+N'oubliez pas de paramétrer vos variables d'environnement dans un fichier .env (utilisez le .env.sample en exemple).
 
 ## English translation
 
 This part is a frontend project for a meteo checker fullstack web app. 
-At this time, you can search a city, check her weather on the home page and set this in local storage of your browser.
+At this time, you can search a city, check its weather on the home page and set this in browser's local storage.
 As a user, you can create an account and login to add and get favorite cities.
 
 for the future, I would like to upgrade the UI with CSS, add features to update or delete user account and refactor code.
